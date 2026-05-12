@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Naritsara Changko | Portfolio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: "Times New Roman", serif;
+      background: linear-gradient(to bottom, #fff7fb, #f7efff);
+      color:#5d4b6a;
+      line-height:1.7;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      padding:20px 0;
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid #f0d9ff;
+    }
+
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#b26bff;
+    }
+
+    .menu{
+      display:flex;
+      gap:25px;
+    }
+
+    .menu a{
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    .menu a:hover{
+      color:#ff8fcf;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0;
+    }
+
+    .hero-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      color:#b26bff;
+      margin-bottom:15px;
+    }
+
+    .hero-text h2{
+      font-size:28px;
+      color:#ff8fcf;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 32px;
+      background:linear-gradient(135deg,#d9a7ff,#ffb6d9);
+      color:white;
+      border-radius:40px;
+      font-size:18px;
+      transition:0.3s;
+      box-shadow:0 10px 20px rgba(255,182,217,0.3);
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .hero-image{
+      text-align:center;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:430px;
+      border-radius:30px;
+      box-shadow:0 15px 40px rgba(178,107,255,0.25);
+      border:8px solid #fff;
+    }
+
+    /* SECTION */
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:42px;
+      color:#b26bff;
+      margin-bottom:60px;
+    }
+
+    /* ABOUT */
+    .about{
+      background:#fff9fd;
+      border-radius:40px;
+      padding:60px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .about p{
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(178,107,255,0.12);
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-img{
+      height:220px;
+      background:linear-gradient(135deg,#e8cfff,#ffd6eb);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content h3{
+      color:#b26bff;
+      margin-bottom:10px;
+    }
+
+    /* SKILLS */
+    .skills-container{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    .skill{
+      margin-bottom:25px;
+    }
+
+    .skill-name{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    .skill-bar{
+      width:100%;
+      height:14px;
+      background:#f0d9ff;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .skill-fill{
+      height:100%;
+      border-radius:20px;
+      background:linear-gradient(to right,#c89cff,#ff9fcb);
+    }
+
+    /* CONTACT */
+    .contact-box{
+      background:white;
+      padding:50px;
+      border-radius:35px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(178,107,255,0.12);
+    }
+
+    .contact-box p{
+      font-size:20px;
+      margin:15px 0;
+    }
+
+    .contact-highlight{
+      color:#ff8fcf;
+      font-weight:bold;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#8a7a99;
+      font-size:16px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+
+      .hero-content{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:46px;
+      }
+
+      .skills-container{
+        grid-template-columns:1fr;
+      }
+
+      .about{
+        padding:35px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">Newzealand</div>
+
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <h1>6657200099<br>Naritsara Changko</h1>
+
+        <h2>
+          English Teaching student passionate about Teaching Business
+        </h2>
+
+        <p>
+          Future English educator with creativity, passion, and a strong belief
+          in meaningful learning experiences through innovation and technology.
+        </p>
+
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+
+      <div class="hero-image">
+        <!-- ใช้ชื่อไฟล์รูปของคุณแทน image.jpg -->
+        <img src="image.jpg" alt="Naritsara Portfolio Image">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about">
+
+        <p>
+          Hello world! I'm an English Language Teaching student who wants to
+          make Teaching Business. I am a dedicated student in the Faculty of
+          Education, majoring in English Teaching at Panyapiwat Institute of
+          Management.
+        </p>
+
+        <p>
+          I am a firm believer in the Work-based Education model, which
+          emphasizes learning through practical experience. With a B2 CEFR
+          proficiency level and a deep commitment to the teaching profession,
+          I focus on integrating academic excellence with effective classroom
+          management to inspire students through a sincere and professional
+          approach.
+        </p>
+
+        <p>
+          My expertise lies in designing innovative instructional materials
+          through Game-based Learning (GBL), with a specific focus on applying
+          Morphology concepts, as demonstrated in my project, "The Forge."
+        </p>
+
+        <p>
+          As a detail-oriented individual and a perfectionist, I constantly
+          explore ways to leverage technology and modern methodologies to
+          create a globally-minded and engaging classroom environment.
+          My goal is to elevate the English learning experience, making it
+          more dynamic and impactful for the next generation.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-img">
+            Project 01
+          </div>
+
+          <div class="project-content">
+            <h3>The Forge</h3>
+
+            <p>
+              A Game-based Learning project designed to improve students'
+              understanding of Morphology through interactive classroom
+              activities and creative educational experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            Project 02
+          </div>
+
+          <div class="project-content">
+            <h3>Creative Classroom Media</h3>
+
+            <p>
+              Developed engaging teaching materials and pastel-themed learning
+              media to create a motivating and student-friendly classroom
+              atmosphere.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            Project 03
+          </div>
+
+          <div class="project-content">
+            <h3>English Communication Workshop</h3>
+
+            <p>
+              Organized interactive speaking workshops focused on confidence
+              building, communication skills, and practical English usage for
+              modern learners.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-container">
+
+        <div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>English Communication</span>
+              <span>90%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:90%;"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>Classroom Management</span>
+              <span>85%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:85%;"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>Game-based Learning</span>
+              <span>88%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:88%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>Instructional Design</span>
+              <span>82%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:82%;"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>Creativity</span>
+              <span>92%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:92%;"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-name">
+              <span>Technology Integration</span>
+              <span>80%</span>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-fill" style="width:80%;"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-box">
+
+        <p>
+          📧 Email:
+          <span class="contact-highlight">
+            newzealand@email.com
+          </span>
+        </p>
+
+        <p>
+          🌐 Website:
+          <span class="contact-highlight">
+            newzea.com
+          </span>
+        </p>
+
+        <p>
+          📷 Instagram:
+          <span class="contact-highlight">
+            @Newzealanq
+          </span>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Naritsara Changko | Personal Portfolio Landing Page
+  </footer>
+
+</body>
+</html>
